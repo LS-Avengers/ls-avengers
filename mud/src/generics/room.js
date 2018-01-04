@@ -1,11 +1,3 @@
-class GameObject {
-  constructor(options){
-    this.name = options.name;
-    this.description = options.description;
-    this.inventory = options.inventory;
-  }
-}
-
 class Room extends GameObject {
   constructor(options) {
     super(options);
