@@ -6,4 +6,4 @@ class GameObject {
   }
 }
 
-export default gameObject;
+export default GameObject;

@@ -13,23 +13,21 @@ class Person extends gameObject{
 class NPC extends Person{
 	constructor(options){
 		super(options);
-		this.xpValue = options.xpValue;
 	}
+	
 	goBankrupt = () => {
 		this.bankrupt = true;
+		console.log("Bankruptcy");
 	}
 }
 
-class Player extends  Person{
+class Player extends Person{
 	constructor(options){
 		super(options);
-		this.xp = 0;
-		this.level = 1;
-		this.xpToNextLevel = 100;
 	}
 	
 	pickup = (Item, Room) => {
-		switch(Item.name) {
+		switch(Item.type) {
 			case 'tree':
 				Player.winGame();
 				break;
@@ -46,29 +44,17 @@ class Player extends  Person{
 	sue = (NPC) => {
 		NPC.netWorth -= this.revenue;
 		if(NPC.netWorth <= 0){
-			NPC.goBankrupt();
-			this.xp += NPC.xpValue;
-			if(this.xp >= this.xpToNextLevel){
-				this.levelUp();
-			}
+			NPC.bankrupt = true;
 		}
 	}
 	
-	levelUp(){
-		this.xp = this.xp % this.xpToNextLevel;
-		this.xpToNextLevel *= 1.5;
-		this.revenue += 2;
-		this.level++;
-		console.log(`You gained a level! You are now level {$this.level}`);
-	}
-	
-	winGame = () => {
-		console.log("You win! You monster.");
-	}
-	
 	goBankrupt = () => {
-		console.log("Chapter 11! You're bankrupt. Morally and financially.'");
+		console.log("Chapter 11!");
 	}
 }
 
-export default NPC, Person;
+winGame = () => {
+	console.log("Player wins the game!");
+}
+
+export default { NPC, Person };
