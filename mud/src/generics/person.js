@@ -1,6 +1,6 @@
-﻿import gameObject from './gameObject.js';
+﻿import GameObject from './GameObject.js';
 
-class Person extends gameObject{
+class Person extends GameObject{
 	constructor(options){
 		super(options);
 		this.netWorth = options.netWorth;
@@ -45,7 +45,8 @@ class Player extends Person{
 		Room.removeFromInventory(Item);
 	}
 	
-	sue = (NPC) => {
+
+	sue(NPC) {
 		NPC.netWorth -= this.revenue;
 		if(NPC.netWorth <= 0){
 			NPC.bankrupt = true;
@@ -60,9 +61,9 @@ class Player extends Person{
 		this.xp = this.xp % this.xpToNextLevel;
 		this. xpToNextLevel = level*100;
 		this.level++;
-	}
-	
-	goBankrupt = () => {
+  }
+
+  goBankrupt = () => {
 		console.log("Chapter 11! You're bankrupt! Morally and financially.");
 	}
 }
@@ -71,4 +72,4 @@ winGame = () => {
 	console.log("Player wins the game!");
 }
 
-export default { NPC, Person };
+export { NPC, Person, Player };
