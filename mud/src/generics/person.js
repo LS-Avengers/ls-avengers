@@ -1,6 +1,6 @@
-﻿import gameObject from './gameObject.js';
+﻿import GameObject from './GameObject.js';
 
-class Person extends gameObject{
+class Person extends GameObject{
 	constructor(options){
 		super(options);
 		this.netWorth = options.netWorth;
@@ -20,31 +20,16 @@ class NPC extends Person{
 class Player extends  Person{
 	constructor(options){
 		super(options);
-		this.
 	}
-	this.pickup = (Item, Room) => {
-		switch(Item.type) {
-			case 'tree':
-				Player.winGame();
-				break;
-			case 'money':
-				this.revenue += Item.quantity;
-				break;
-			default:
-				inventory.push(Item);
-				break;
-		}
-		Room.removeFromInventory(Item);
-	}
-	this.sue = (NPC) => {
+	sue(NPC) {
 		NPC.netWorth -= this.revenue;
 		if(NPC.netWorth <= 0){
 			NPC.bankrupt = true;
 		}
 	}
-	this.goBankrupt = () => {
+	goBankrupt() {
 		console.log("Chapter 11!");
 	}
 }
 
-export { NPC, Person, player}
+export { NPC, Person, Player };

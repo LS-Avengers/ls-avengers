@@ -21,9 +21,5 @@ class Room extends GameObject {
     return retVal;
   }
 }
-export default Room;
-// var r1 = new Room({directions: {north: r2}});
-// var r2 = new Room({directions: {north: r3, south: r1}});
-// var r3 = new Room({directions: {south: r2}});
 
-// console.log(r3.directions);
+export default Room;
