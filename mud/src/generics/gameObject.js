@@ -8,6 +8,7 @@ class GameObject {
     this.inventory.push(item);
   }
   removeFromInventory(object) {
+    console.log(object);
     this.inventory = this.inventory.filter(item => item.name !== object.name);
   }
   examine() {

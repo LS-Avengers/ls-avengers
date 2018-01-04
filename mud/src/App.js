@@ -13,8 +13,9 @@ class App extends Component {
       go: (direction) => {
         console.log(Map[0]);
         console.log(this.state.room.directions);
-        this.state.room.directions[direction].addToInventory(this.player);
-        this.state.room.removeFromInventory(this.player);
+        this.state.room.directions[direction].addToInventory(this.state.player);
+        console.log(this.state.player);
+        this.state.room.removeFromInventory(this.state.player);
         this.setState({room: this.state.room.directions[direction]});
       },
     };
@@ -27,7 +28,10 @@ class App extends Component {
         <p>{this.state.room.description}</p>
         <p>{
           this.state.room.inventory
-            ? this.state.room.inventory
+            ? this.state.room.inventory.map((test) => {
+              if (test !== Player) 
+                return <span>{test.name}</span>
+            })
             : ''
         }</p>
         <p>You can go {Object.keys(this.state.room.directions)}</p>
