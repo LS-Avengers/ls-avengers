@@ -9,7 +9,7 @@ class Room extends GameObject {
   canGo(direction) {
     return Object.keys(this.directions).includes(direction);
   }
-  addNewDIrection(dname, room){
+  addNewDirection(dname, room){
     this.directions[dname] = room;
   }
   addNewEvent(ename, script){
