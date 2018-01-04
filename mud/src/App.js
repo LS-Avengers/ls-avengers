@@ -11,12 +11,14 @@ class App extends Component {
     };
     this.actions = {
       go: (direction) => {
-        console.log(Map[0]);
-        console.log(this.state.room.directions);
-        this.state.room.directions[direction].addToInventory(this.state.player);
-        console.log(this.state.player);
-        this.state.room.removeFromInventory(this.state.player);
-        this.setState({room: this.state.room.directions[direction]});
+        if (this.player.canGo(direction)) {
+          console.log(Map[0]);
+          console.log(this.state.room.directions);
+          this.state.room.directions[direction].addToInventory(this.state.player);
+          console.log(this.state.player);
+          this.state.room.removeFromInventory(this.state.player);
+          this.setState({room: this.state.room.directions[direction]});
+        } else { console.log('You cannot go that direction'); }
       },
     };
   }
