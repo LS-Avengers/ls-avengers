@@ -7,8 +7,8 @@ class GameObject {
   addToInventory(item) {
     this.inventory.push(item);
   }
-  removeFromInventory(name) {
-    this.inventory = this.inventory.filter(item => item.name !== name);
+  removeFromInventory(object) {
+    this.inventory = this.inventory.filter(item => item.name !== object.name);
   }
   examine() {
     const retVal = {
@@ -20,4 +20,4 @@ class GameObject {
   } 
 }
 
-export default gameObject;
+export default GameObject;

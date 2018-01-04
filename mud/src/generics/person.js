@@ -13,9 +13,7 @@ class Person extends gameObject{
 class NPC extends Person{
 	constructor(options){
 		super(options);
-	}
-	this.goBankrupt = () => {
-		
+		this.goBankrupt = () => {};
 	}
 }
 
@@ -49,4 +47,4 @@ class Player extends  Person{
 	}
 }
 
-export default NPC, Person;
+export { NPC, Person, player}
