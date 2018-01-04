@@ -34,6 +34,12 @@ class Room extends GameObject {
     }
     return false;
   }
+  look(direction) {
+    if (this.canGo(direction)) {
+      return this.directions[direction].description;
+    }
+    return false;
+  }
 }
 
 export default Room;

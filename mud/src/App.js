@@ -34,7 +34,15 @@ class App extends Component {
             })
             : ''
         }</p>
-        <p>You can go {Object.keys(this.state.room.directions)}</p>
+        <p>You can go {
+          Object.keys(this.state.room.directions).map((dir) => {
+            return (
+              <button onClick={() => {this.handleInput(dir)}}>
+                {dir}
+              </button>
+            );
+          })
+        }</p>
         {/* display current Room */}
         <form onSubmit={(e) => {
           e.preventDefault();
