@@ -3,12 +3,14 @@ class GameObject {
     this.name = options.name;
     this.description = options.description;
     this.inventory = [];
+    this.actions = {
+      examine: this.examine,
+    };
   }
   addToInventory(item) {
     this.inventory.push(item);
   }
   removeFromInventory(object) {
-    console.log(object);
     this.inventory = this.inventory.filter(item => item.name !== object.name);
   }
   examine() {
@@ -18,7 +20,9 @@ class GameObject {
     };
     if (this.inventory.length > 0) retVal.inventory = this.inventory;
     return retVal;
-  } 
+  }
+  addToActions(name, funct) {
+    this.actions[name] = funct;
+  }
 }
-
 export default GameObject;

@@ -5,6 +5,12 @@ class Room extends GameObject {
     super(options);
     this.directions = options.directions || {};
     this.events = options.events || {};
+
+    this.examineRoom = this.examineRoom.bind(this);
+    this.go = this.go.bind(this);
+    this.canGo = this.canGo.bind(this);
+    this.addToActions('examine', this.examineRoom);
+    this.addToActions('go', this.go);
   }
   canGo(direction) {
     return Object.keys(this.directions).includes(direction);
@@ -19,6 +25,14 @@ class Room extends GameObject {
     const retVal = this.examine();
     retVal.directions = Object.keys(this.directions);
     return retVal;
+  }
+  go(direction, player) {
+    if (this.canGo(direction)) {
+      this.removeFromInventory(player);
+      this.directions[direction].addToInventory(player);
+      return this.directions[direction];
+    }
+    return false;
   }
 }
 
