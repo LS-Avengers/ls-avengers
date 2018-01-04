@@ -22,8 +22,8 @@ class NPC extends Person{
 class Player extends  Person{
 	constructor(options){
 		super(options);
-		this.
 	}
+	
 	this.pickup = (Item, Room) => {
 		switch(Item.type) {
 			case 'tree':
