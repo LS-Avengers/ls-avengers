@@ -13,6 +13,7 @@ class Person extends gameObject{
 class NPC extends Person{
 	constructor(options){
 		super(options);
+		this.xpValue = options.xpValue;
 	}
 	
 	goBankrupt = () => {
@@ -24,6 +25,9 @@ class NPC extends Person{
 class Player extends Person{
 	constructor(options){
 		super(options);
+		this.xp = 0;
+		this.level = 1;
+		this.xpToNextLevel = 100;
 	}
 	
 	pickup = (Item, Room) => {
@@ -45,11 +49,21 @@ class Player extends Person{
 		NPC.netWorth -= this.revenue;
 		if(NPC.netWorth <= 0){
 			NPC.bankrupt = true;
+			this.xp += NPC.xpValue;
+			if(this.xp >= this.xpToNextLevel){
+				this.levelUp();
+			}
 		}
 	}
 	
+	levelUp = () => {
+		this.xp = this.xp % this.xpToNextLevel;
+		this. xpToNextLevel = level*100;
+		this.level++;
+	}
+	
 	goBankrupt = () => {
-		console.log("Chapter 11!");
+		console.log("Chapter 11! You're bankrupt! Morally and financially.");
 	}
 }
 
