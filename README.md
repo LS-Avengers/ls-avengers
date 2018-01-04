@@ -35,3 +35,6 @@ Set -> Modern times
 Pseudo-comedic vibe to it
 starting zone -> small town
 end -> Mt. Olympus
+
+Bob has net worth instead of HP
+Bob doesn't attack he sues people
