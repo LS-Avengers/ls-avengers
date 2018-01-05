@@ -3,15 +3,14 @@ import GameObject from "./gameObject.js";
 class Item extends GameObject {
   constructor(options){
     super(options);
-    this.canPickup = false;
-    this.canMove  = false;
-    this.canUse = false;
+    this.canPickup = options.canPickup || false;
+    this.hasInventory = options.hasInventory || false;
   }
-  setProp(pname, property){
-    this.[pname] = property;
+  setProp(property, value) {
+    this[property] = value;
   }
-  getProp(pname){
-    return this.[pname];
+  getProp(property) {
+    return this[property];
   }
 }
 

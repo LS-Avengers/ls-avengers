@@ -1,4 +1,5 @@
 import Room from './generics/room.js';
+import snapple from './specifics/snappleBottle.js';
 
 // var r1 = new Room({
 //   name: 'Starting Room',
@@ -39,7 +40,7 @@ var hallway = new Room({
     south: bedroom,
     west: kitchen,
     east: computerRoom,
-    north: outside // to work--can't access until gets snapple
+    // north: outside // to work--can't access until gets snapple
   },
 });
 var kitchen = new Room({
@@ -48,8 +49,9 @@ var kitchen = new Room({
   directions: {
     east: hallway,
   },
-  // inventory: [fridge]
+  // inventory: [snapple],
 });
+kitchen.addToInventory(snapple);
 var computerRoom = new Room({
   name: 'Computer Room',
   description: 'You have entered the Computer Room with a Computer. The Hallway is West.',
@@ -171,7 +173,7 @@ bedroom.addNewDirection('north', hallway);
 hallway.addNewDirection('south', bedroom);
 hallway.addNewDirection('west', kitchen);
 hallway.addNewDirection('east', computerRoom);
-hallway.addNewDirection('north', outside);
+// hallway.addNewDirection('north', outside);
 // work direction added after snapple item collected
 //kitchen directions
 kitchen.addNewDirection('east', hallway);
@@ -212,5 +214,5 @@ mapStand.addNewDirection('west', lawStreet);
 // The Bar
 theBar.addNewDirection('north', lawStreet);
 // Olympus Park
-export default [bedroom, hallway, kitchen, computerRoom, workDesk, work, frontDesk, bossOffice, mainStreet,
+export default [bedroom, hallway, outside, kitchen, computerRoom, workDesk, work, frontDesk, bossOffice, mainStreet,
   streetCorner, market, lawStreet, mapStand, theBar];
