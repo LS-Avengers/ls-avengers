@@ -1,13 +1,8 @@
-// import GameObject from './gameObject.js';
-// import { Person, NPC, Player } from './generics/person.js';
 import Item from './generics/item.js';
 import map from './map.js';
 
-// List of interactive items/objects that pussh the story forward
+// List of interactive items/objects that push the story forward
 
-// fridge, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife
-// moralFriend, Jerkface McGee, personWithDog, Boss2, Boss3, storeClerk (purchase snapples)
-// snapple in fridge in kitchen
 var snapple = new Item({
   name: 'snapple',
   description: 'it\'s a snapple bottle',
