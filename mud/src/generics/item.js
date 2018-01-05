@@ -10,8 +10,8 @@ class Item extends GameObject {
     this.addToActions('get', this.pickUp);
   }
   toggleProp(property) {
-    this[property] = !this[property];
-    return this[property];
+    if (this.hasOwnProperty(property))
+      this[property] = !this[property];
   }
   getProp(property) {
     return this[property];
