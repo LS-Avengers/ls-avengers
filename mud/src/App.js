@@ -8,6 +8,15 @@ import './App.css';
 
 const player = new Player({name: 'bob'});
 
+const itemNames = items.map(item => item.name);
+const test = (input) => {
+  for (let i = 0; i < itemNames.length; i++) {
+    if (input.indexOf(itemNames[i]) !== -1) {
+      return itemNames[i];
+    }
+  }
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +32,7 @@ class App extends Component {
   handleInput(input) {
     const { room, player } = this.state;
     const doing = input.split(' ')[0];
-    const item = input.split(' ').reverse()[0];
+    const item = test(input) || input.split(' ').reverse()[0];
     const direction = { north: true, south: true, east: true, west: true };
 
     if (direction[doing]) {
