@@ -35,8 +35,8 @@ class App extends Component {
     let testing
     if (value.length > 0 && Object.keys(value[0].actions).includes(test[0])) {
       testing = value[0].actions[test[0]](this.state.player, this.state.room);
-      const test2 = [`you ${test[0]} the ${value[0].name}.`, ...Object.values(testing)];
-      console.log(test2);
+      // const test2 = [`you ${test[0]} the ${value[0].name}.`, ...[Object.values(testing)]];
+      console.log(`you ${test[0]} the ${value[0].name}.`, testing);
     }
     /* examine/look/go */
     /* going places */
