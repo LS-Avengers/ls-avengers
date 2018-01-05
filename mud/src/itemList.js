@@ -69,4 +69,12 @@ var treeOfLife = new Item({
   // chop down tree action
   // take picture of tree action
 });
-export default [fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife];
+
+var snapples = new Item({
+  name: 'A Bunch of Snapples',
+  description: 'A whole bunch of snapples! Let\'s check all the lids!',
+  // get snapples
+  // check snapples
+});
+
+export default [fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife, snapples];
