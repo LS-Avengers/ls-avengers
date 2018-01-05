@@ -34,14 +34,18 @@ fridge.addToActions('get', (function(person) {
 
 var homeComputer = new Item({
   name: 'home computer',
-  description: 'Your computer is currently on',
+  description: `Your computer is currently ${this.state}.`,
   // possibly show ascii picture
   // possibly turn off
 });
+homeComputer.state = 'off';
+homeComputer.addToActions('power', (function() {
+  this.state = this.state === 'on' ? 'off' : 'on'; 
+}).bind(homeComputer));
 
 var workComputer = new Item({
   name: 'work computer',
-  description: 'Your work computer',
+  description: 'Your work computer, all the days of solitare.',
 });
 
 var flyer = new Item({
