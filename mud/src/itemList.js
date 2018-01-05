@@ -36,6 +36,7 @@ var homeComputer = new Item({
 homeComputer.state = false;
 homeComputer.addToActions('power', (function() {
   this.state = !this.state
+  return 'you push the power button';
 }).bind(homeComputer));
 
 var workComputer = new Item({
@@ -55,9 +56,9 @@ var camera = new Item({
   description: 'It\'s a decent digital camera that can post to social media',
   canPickup: true,
 });
-camera.addToActions('take', (function() { // take picture
+camera.addToActions('take', function() { // take picture
   return 'you snap a photo with your camera.';
-}).bind(camera)); 
+}); 
 
 var mapItem = new Item({
   name: 'map',
