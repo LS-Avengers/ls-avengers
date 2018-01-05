@@ -9,8 +9,9 @@
 .App {
   display: flex;
   flex-direction: column;
+  margin: 1rem;
  }
 .App input {
-  width: 16rem;
+  max-width: 16rem;
 }
 

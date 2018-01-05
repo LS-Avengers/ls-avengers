@@ -3,16 +3,6 @@ import Map from './map.js';
 import Description from './components/descriptions.js';
 import { Player } from './generics/person.js';
 
-// import Item from './generics/item.js';
-
-// const stack = [wrapper(go, room)]
-
-// const wrapper = (funct, room, ...args) => {
-//   console.log(...args);
-//   if (room === this.state.room) {
-//     funct(args);
-//   }
-// }
 import './App.css';
 
 const player = new Player({name: 'bob'});
