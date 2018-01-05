@@ -51,6 +51,10 @@ class App extends Component {
     const item = test(input) || input.split(' ').reverse()[0];
     const direction = { north: true, south: true, east: true, west: true };
 
+    if (doing === 'inventory') {
+      this.parseReturnValue(`You're carrying ${player.inventory.reduce((memo, curr) => memo += curr.name, '') || 'nothing'}.`);
+      return
+    }
     if (direction[doing]) {
       const nRoom = room.actions.go(doing, player);
       if (nRoom) {
@@ -101,10 +105,11 @@ class App extends Component {
           else if (curr === 'directions') memo += `You see exits twords ${args[i][curr].join(', ')}.`
           else if (Array.isArray(args[i][curr])) memo += `You also see ${args[i][curr].join(', ')}`;
           else if (typeof args[i][curr] === 'string') memo += args[i][curr];
-          memo += ' ';
+          return memo += ' ';
         }, '');
       }
     }
+    console.log(retVal);
     if (retVal !== '') this.setState({ update: retVal });
   }
   render() {
