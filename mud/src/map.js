@@ -29,63 +29,73 @@ import Room from './generics/room.js';
 // Apartment Rooms
 var bedroom = new Room({
   name: 'Bedroom',
-  description: 'You are in your bedroom. The hallway is to the North.',
+  description: 'You are in your Bedroom. The Hallway is to the North.',
   directions: {north: hallway},
 });
 var hallway = new Room({
   name: 'Hallway',
-  description: 'You are in a hallway. The kitchen is to the north, the computer room is to the east, the bedroom is to the south, and the front door is to the west.',
+  description: 'You are in a Hallway. The Kitchen is West, the Computer Room is East, the Bedroom is South, and the Front Door to Outside is North.',
   directions: {
     south: bedroom,
-    north: kitchen,
+    west: kitchen,
     east: computerRoom,
-    // west: work--to work--can't access until gets snapple
+    north: outside // to work--can't access until gets snapple
   },
 });
 var kitchen = new Room({
   name: 'Kitchen',
-  description: 'You have entered the kitchen with a fridge. The hallway is South.',
+  description: 'You have entered the Kitchen with a Fridge. The Hallway is East.',
   directions: {
-    south: hallway,
+    east: hallway,
   },
   // inventory: [fridge]
 });
 var computerRoom = new Room({
   name: 'Computer Room',
-  description: 'You have entered the computer room with a computer. The hallway is South.',
+  description: 'You have entered the Computer Room with a Computer. The Hallway is West.',
   directions: {
-    south: hallway,
+    west: hallway,
   },
   // inventory: [homeComputer]
+});
+// Outside Rooms
+var outside = new Room({
+  name: 'Outside',
+  description: 'You are Outside. Work is West. Main Street is North',
+  directions: {
+    west: work,
+    north: mainStreet,
+  },
 });
 // Work Rooms
 var work = new Room({
   name: 'Work',
-  description: 'You are at work. The boss\'s office is North, your work desk West, the front desk is South',
+  description: 'You are at work in the Main Office. The Boss\'s Office is South, your Work Desk West, the Front Desk is North. Outside is East.',
   directions: {
-    north: bossOffice,
+    south: bossOffice,
     west: workDesk,
-    south: frontDesk,
+    north: frontDesk,
+    east: outside // After Boss fight 1
   },
 });
 var bossOffice = new Room({
   name: 'Boss\'s Office',
-  description: 'You are in your Boss\'s office. Your boss is at his desk. The main office is South',
+  description: 'You are in your Boss\'s Office. Your Boss is at his desk. The Main Office is North',
   directions: {
-    south: work,
+    north: work,
   },
 });
 var workDesk = new Room({
   name: 'Work Desk',
-  description: 'You are at your desk. There is a computer. The main office is South',
+  description: 'You are at your Work Desk. There is a Computer. The Main Office is East',
   directions: {
-    south: work,
+    east: work,
   },
   //inventory: [workComputer],
 });
 var frontDesk = new Room({
   name: 'Front Desk',
-  description: 'You are at the front desk. A social worker is standing there. The main office is South.',
+  description: 'You are at the Front Desk. A Social Worker is standing there. The Main Office is South.',
   directions: {
     south: work,
   }
@@ -94,24 +104,26 @@ var frontDesk = new Room({
 // Street
 var mainStreet = new Room({
   name: 'Main Street',
-  description: 'You are on a street. There is someone yelling on the street corner to your West. There is a market ' +
-  'to the East and a piece of paper on the ground.',
+  description: 'You are on a Main Street. There is Someone yelling on the West Street Corner. There is a Market ' +
+  'to the North. Law Street is East and a Piece of Paper on the ground. Outside of your home is South.',
   directions: {
+    south: outside, //(outside of apartment)
     west: streetCorner,
-    east: market,
+    north: market,
+    east: lawStreet,
   },
   //inventory: [flyer],
 });
 var streetCorner = new Room({
   name: 'West Street Corner',
-  description: 'You are on the street corner. You see a disheveled person. The street is South.',
+  description: 'You are on the West Street Corner. You see a Disheveled Person yelling. Main Street is East.',
   directions: {
-    south: mainStreet,
+    east: mainStreet,
   }
 });
 var market = new Room({
-  name: 'Street',
-  description: 'You are in the market. You see a camera, and Snapples. The street is South.',
+  name: 'Market',
+  description: 'You are in the Market. You see a Camera, and Bottles of Snapple. The Main Street is South.',
   directions: {
     south: mainStreet,
   },
@@ -120,26 +132,28 @@ var market = new Room({
 // Part 3: Travel to Tree of Life
 var lawStreet = new Room({
   name: 'Law Street',
-  description: 'You are on Law Street. There is a map stand to the West and \"The Bar\" to the North.' +
-  'There is a person with a dog walking towards you.',
+  description: 'You are on Law Street. There is a map stand to the East and \"The Bar\" to the South.' +
+  'Olympus Park is North. There is a person with a dog walking towards you.',
   directions: {
-    north: theBar,
-    west: mapStand,
+    west: mainStreet,
+    north: parkOlympus,
+    south: theBar,
+    east: mapStand,
   },
 });
 var theBar = new Room({
   name: 'The Bar',
-  description: 'You are in the \"The Bar\", a local hangout for lawyers. There is a lawyer sitting at a table. ' +
-  'Law Street is South',
+  description: 'You are in the \"The Bar\", a local hangout for lawyers. There is a Lawyer sitting at a table. ' +
+  'Law Street is North.',
   directions: {
-    south: lawStreet,
+    north: lawStreet,
   }
 });
 var mapStand = new Room({
   name: 'Map Stand',
-  description: 'You are at the Map Stand. There is a map. Law Street is South',
+  description: 'You are at the Map Stand. There is a Map. Law Street is West',
   directions: {
-    south: lawStreet,
+    west: lawStreet,
   },
   //inventory: [mapItem]
 });
@@ -148,42 +162,55 @@ var mapStand = new Room({
 var parkOlympus = new Room({
   name: 'Park Olympus',
   description: 'You are in Park Olympus. The Tree of Life is in front of you.',
+  south: lawStreet,
   //inventory: [treeOfLife]
 });
 // Add directions
 bedroom.addNewDirection('north', hallway);
 //hallway directions
 hallway.addNewDirection('south', bedroom);
-hallway.addNewDirection('north', kitchen);
+hallway.addNewDirection('west', kitchen);
 hallway.addNewDirection('east', computerRoom);
+hallway.addNewDirection('north', outside);
 // work direction added after snapple item collected
 //kitchen directions
-kitchen.addNewDirection('south', hallway);
+kitchen.addNewDirection('east', hallway);
 // computer room directions
-computerRoom.addNewDirection('south', hallway);
+computerRoom.addNewDirection('west', hallway);
+// outside
+outside.addNewDirection('west', work);
+outside.addNewDirection('north', mainStreet);
+outside.addNewDirection('south', hallway);
+
 // work directions
-work.addNewDirection('north', bossOffice);
+work.addNewDirection('south', bossOffice);
 work.addNewDirection('west', workDesk);
-work.addNewDirection('south', frontDesk);
+work.addNewDirection('north', frontDesk);
+work.addNewDirection('east', outside);
 // boss office
-bossOffice.addNewDirection('south', work);
+bossOffice.addNewDirection('north', work);
 // work desk
-workDesk.addNewDirection('south', work);
+workDesk.addNewDirection('east', work);
 // front desk
 frontDesk.addNewDirection('south', work);
 // Main Street directions
 mainStreet.addNewDirection('west', streetCorner);
-mainStreet.addNewDirection('east', market);
+mainStreet.addNewDirection('north', market);
+mainStreet.addNewDirection('south', outside);
+mainStreet.addNewDirection('east', lawStreet);
 // street corner
-streetCorner.addNewDirection('south', mainStreet);
+streetCorner.addNewDirection('east', mainStreet);
 // market
 market.addNewDirection('south', mainStreet);
 // law street
-lawStreet.addNewDirection('west', mapStand);
-lawStreet.addNewDirection('north', theBar);
+lawStreet.addNewDirection('east', mapStand);
+lawStreet.addNewDirection('north', parkOlympus);
+lawStreet.addNewDirection('west', mainStreet);
+lawStreet.addNewDirection('south', theBar);
 // map stand
-mapStand.addNewDirection('south', lawStreet);
+mapStand.addNewDirection('west', lawStreet);
 // The Bar
-theBar.addNewDirection('south', lawStreet);
+theBar.addNewDirection('north', lawStreet);
+// Olympus Park
 export default [bedroom, hallway, kitchen, computerRoom, workDesk, work, frontDesk, bossOffice, mainStreet,
   streetCorner, market, lawStreet, mapStand, theBar];
