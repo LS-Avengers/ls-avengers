@@ -31,7 +31,8 @@ class App extends Component {
 
   handleInput(input) {
     const test = input.split(' ');
-    const value = this.state.room.inventory.filter(item => test[test.length - 1] === item.name);
+    let value = this.state.room.inventory.filter(item => test[test.length - 1] === item.name) 
+    if (value.length === 0) value = this.state.player.inventory.filter(item => test[test.length - 1] === item.name);
     let testing
     if (value.length > 0 && Object.keys(value[0].actions).includes(test[0])) {
       testing = value[0].actions[test[0]](this.state.player, this.state.room);
