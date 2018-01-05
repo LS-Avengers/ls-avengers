@@ -23,10 +23,9 @@ var fridge = new Item({
   description: 'Fridge with a refreshing Snapple',
 });
 fridge.addToInventory(snapple);
-fridge.open = (function() {
-  return `You see ${this.inventory.reduce((memo, item) => memo + item.name, '') || 'nothing'}`;
-}).bind(fridge);
-fridge.addToActions('open', fridge.open);
+fridge.addToActions('open', (function() {
+  return `You see ${this.inventory.reduce((memo, item) => {return memo + item.name}, '') || 'nothing'}`;
+}).bind(fridge));
 fridge.addToActions('get', (function(person) {
   this.removeFromInventory(snapple);
   person.addToInventory(snapple);
