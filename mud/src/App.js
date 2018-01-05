@@ -16,6 +16,7 @@ import { Player } from './generics/person.js';
 import './App.css';
 
 const player = new Player({name: 'bob'});
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +27,7 @@ class App extends Component {
     };
     this.state.room.inventory.push(this.state.player);
     this.handleInput = this.handleInput.bind(this);
-  }
+  }  
 
   handleInput(input) {
     const test = input.split(' ');
@@ -51,7 +52,6 @@ class App extends Component {
     if (direction[test[test.length - 1]]) room = this.state.room.actions.go(test[test.length-1], this.state.player);
     if (room) this.setState({ room });
     else if (room === false) alert('can\'t go that way');
-    
   }
 
   render() {
