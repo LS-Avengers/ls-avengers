@@ -14,8 +14,7 @@ export default (props) => (
       if (item.name !== props.playerName) {
         return (
         <Fragment>
-          There is a
-          <em onClick={() => {props.handleInput(`examine ${item.name}`)}}
+          There is a <em onClick={() => {props.handleInput(`examine ${item.name}`)}}
           className="Item">{item.name}</em>.
         </Fragment>
         );
