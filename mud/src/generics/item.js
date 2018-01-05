@@ -15,9 +15,10 @@ class Item extends GameObject {
   getProp(property) {
     return this[property];
   }
-  pickUp(player) {
+  pickUp(player, room) {
     if (this.canPickup) {
       player.addToInventory(this);
+      room.removeFromInventory(this);
       return `you picked up ${this.name}.`;
     }
     return false;
