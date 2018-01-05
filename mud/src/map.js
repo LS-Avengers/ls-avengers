@@ -5,26 +5,26 @@ import itemList from './itemList.js';
 // Apartment Rooms
 var bedroom = new Room({
   name: 'Bedroom',
-  description: 'Your bedroom is finely furnished. You classy gentleman you.',
+  description: 'Bob awakens in his bedroom, it is a finely furnished room with only the nicest linens. You classy gentleman you. The door to your bedroom stands open and waiting for your exit.',
 });
 
 var hallway = new Room({
   name: 'Hallway',
-  description: 'You are in a Hallway. The Kitchen is West, the Computer Room is East, the Bedroom is South, and the Front Door to Outside is North.',
+  description: 'You stand at the entrance to the hallway. Its curiously quite a bit longer than seems it should be. Bob briefly considers the prospect of widening the wallway so he can drive.',
 });
 var kitchen = new Room({
   name: 'Kitchen',
-  description: 'You have entered the Kitchen with a Fridge. The Hallway is East.',
+  description: 'You entered the Kitchen, the servant\'s fridge lives against the wall aswell as the cooking doo\'dads that Bob made a point of never learning to use.',
 });
 
 var computerRoom = new Room({
   name: 'Computer Room',
-  description: 'You have entered the Computer Room with a Computer. The Hallway is West.',
+  description: 'Ahh the computer room, *shhh* it\'s sleeping.',
 });
 // Outside Rooms
 var outside = new Room({
   name: 'Outside',
-  description: 'You are Outside. Work is West. Main Street is North',
+  description: 'You are outside. ',
 
 });
 // Work Rooms
@@ -34,7 +34,7 @@ var work = new Room({
 });
 var bossOffice = new Room({
   name: 'Boss\'s Office',
-  description: 'You are in your Boss\'s Office. Your Boss is at his desk. The Main Office is North',
+  description: 'You are in your Boss\'s Office. Your Boss sits at his desk.',
 });
 var workDesk = new Room({
   name: 'Work Desk',
