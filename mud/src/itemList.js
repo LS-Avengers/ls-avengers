@@ -56,7 +56,7 @@ var camera = new Item({
   canPickup: true,
 });
 camera.addToActions('take', (function() { // take picture
-  return 'you snap a photo with your camera'.
+  return 'you snap a photo with your camera.';
 }).bind(camera)); 
 
 var mapItem = new Item({
@@ -81,4 +81,4 @@ var snapples = new Item({
     // No info about the tree of life -- need to go find it somewhere else
 });
 
-export {fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife, snapples};
+export default [fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife, snapples];
