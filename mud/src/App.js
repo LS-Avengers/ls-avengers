@@ -94,7 +94,6 @@ class App extends Component {
     this.parseReturnValue('You can\'t do that.');
   }
   parseReturnValue(...args) {
-    console.log(args);  
     let retVal = '';
     for (let i = 0; i < args.length; i++) {
       if (typeof args[i] === 'string') retVal += args[i] + ' ';
@@ -111,7 +110,6 @@ class App extends Component {
         }, '');
       }
     }
-    console.log(retVal);
     if (retVal !== '') this.setState({ update: retVal });
   }
   render() {
