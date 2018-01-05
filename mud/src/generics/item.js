@@ -7,7 +7,7 @@ class Item extends GameObject {
     this.hasInventory = options.hasInventory || false;
 
     this.pickUp = this.pickUp.bind(this);
-    this.addToActions('pick up', this.pickUp);
+    this.addToActions('get', this.pickUp);
   }
   setProp(property, value) {
     this[property] = value;
