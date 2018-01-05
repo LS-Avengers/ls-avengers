@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 import Map from './map.js';
 import Description from './components/descriptions.js';
 import { Player } from './generics/person.js';
+
+// import Item from './generics/item.js';
+
+// const stack = [wrapper(go, room)]
+
+// const wrapper = (funct, room, ...args) => {
+//   console.log(...args);
+//   if (room === this.state.room) {
+//     funct(args);
+//   }
+// }
 import './App.css';
 
 const player = new Player({name: 'bob'});
@@ -11,6 +22,7 @@ class App extends Component {
     this.state = {
       room: Map[0],
       player,
+      updates: ''
     };
     this.state.room.inventory.push(this.state.player);
     this.handleInput = this.handleInput.bind(this);
@@ -19,9 +31,13 @@ class App extends Component {
   handleInput(input) {
     const test = input.split(' ');
     const value = this.state.room.inventory.filter(item => test[test.length - 1] === item.name);
-    let testing;
-    if (value.length > 0) testing = value[0].actions[test[0]]();
-
+    let testing
+    if (value.length > 0 && Object.keys(value[0].actions).includes(test[0])) {
+      testing = value[0].actions[test[0]]();
+      const test2 = [`you ${test[0]} the ${value[0].name}.`, ...Object.values(testing)];
+      console.log(test2, testing);
+    }
+    /* examine/look/go */
     /* going places */
     let room;
     const direction = {
@@ -52,6 +68,7 @@ class App extends Component {
           directions={room.directions}
           handleInput={this.handleInput}
         />
+        <p>{this.state.actions}</p>
         <form onSubmit={(e) => {
           e.preventDefault();
           this.handleInput(input.value);

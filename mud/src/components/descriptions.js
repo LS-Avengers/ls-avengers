@@ -9,7 +9,10 @@ export default (props) => (
         return <Fragment>{item.name}</Fragment>;
     })}</p>
     <p>You are at the {props.name}.{Object.keys(props.directions).map((value) => {
-      return <Fragment>The {props.directions[value].name} is to the <span onClick={() => {props.handleInput(value)}}>{value}</span>.</Fragment>
+      return <Fragment>
+        The {props.directions[value].name} is to the
+          <span onClick={() => {props.handleInput(value)}}>{value}</span>.
+          </Fragment>
     })}</p>
   </div>
 );
