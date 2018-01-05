@@ -2,11 +2,16 @@ body {
   display: flex;
   justify-content: center;
   background-color: #3037;
+}
+
+body, .App, .App input {
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   line-height: 1.5rem;
   color: #ffff;
 }
+
+p, h2 { margin: none; padding: none; line-height: 1.5rem; font-size: 1.5rem; font-weight: 400; }
 
 .Container p {
   max-width: 500px;
@@ -26,9 +31,5 @@ body {
   background: none;
   border: none;
   outline: none;
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  line-height: 1.5rem;
-  color: #ffff;
 }
 
