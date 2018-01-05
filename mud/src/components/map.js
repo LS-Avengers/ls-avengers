@@ -5,7 +5,7 @@ import itemList from './itemList.js';
 // Apartment Rooms
 var bedroom = new Room({
   name: 'Bedroom',
-  description: 'Bob awakens in his bedroom, it is a finely furnished room with only the nicest linens. You classy gentleman you. The door to your bedroom stands open and waiting for your exit.',
+  description: 'Bob\'s bedroom, it is a finely furnished room with only the nicest linens and mahagony. You classy gentleman you. The door to your bedroom stands open and waiting for your exit.',
 });
 
 var hallway = new Room({
@@ -14,27 +14,27 @@ var hallway = new Room({
 });
 var kitchen = new Room({
   name: 'Kitchen',
-  description: 'In the kitchen you see a few cooking utensils and fridge. Maybe there is something inside.',
+  description: 'In the kitchen you see a few cooking utensils and a fridge. Maybe there is something inside to drink still.',
 });
 
 var computerRoom = new Room({
   name: 'Computer Room',
-  description: 'Ahh the computer room, *shhh* it\'s sleeping.',
+  description: 'Ahh the computer room, *shhh* it\'s sleeping. You look at it fondly like a mother looks at its newborn.',
 });
 // Outside Rooms
 var outside = new Room({
   name: 'Outside',
-  description: 'You are outside. ',
+  description: 'The sun hangs high in the sky, the breeze is cool and there isn\'t a cloud in sight.',
 
 });
 // Work Rooms
 var work = new Room({
   name: 'Work',
-  description: 'You are at work in the Main Office. The Boss\'s Office is South, your Work Desk West, the Front Desk is North. Outside is East.',
+  description: 'Calling it a place of business is a misnomer, this is where dreams and moral senseabilities come to die. You see Barry Bluejeans racing around with that silly smile of his, hard to hate. The Boss\'s Office is South, he took pretty much the southern half of the building.',
 });
 var bossOffice = new Room({
   name: 'Boss\'s Office',
-  description: 'You are in your Boss\'s Office. Your Boss sits at his desk.',
+  description: 'You are in your Boss\'s Office. He sits at his desk across from you.',
 });
 var workDesk = new Room({
   name: 'Work Desk',
