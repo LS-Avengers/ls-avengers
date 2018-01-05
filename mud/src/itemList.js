@@ -29,13 +29,13 @@ fridge.addToActions('get', (function(person) {
 
 var homeComputer = new Item({
   name: 'home computer',
-  description: `Your computer is currently ${this.state}.`,
+  description: `Your computer is currently ${this.state ? 'on' : 'off'}.`,
   // possibly show ascii picture
   // possibly turn off
 });
-homeComputer.state = 'off';
+homeComputer.state = false;
 homeComputer.addToActions('power', (function() {
-  this.state = this.state === 'on' ? 'off' : 'on'; 
+  this.state = !this.state
 }).bind(homeComputer));
 
 var workComputer = new Item({
@@ -55,6 +55,9 @@ var camera = new Item({
   description: 'It\'s a decent digital camera that can post to social media',
   canPickup: true,
 });
+camera.addToActions('take', (function() { // take picture
+  return 'you snap a photo with your camera'.
+}).bind(camera)); 
 
 var mapItem = new Item({
   name: 'map',
@@ -78,4 +81,4 @@ var snapples = new Item({
     // No info about the tree of life -- need to go find it somewhere else
 });
 
-export default [fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife, snapples];
+export {fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife, snapples};
