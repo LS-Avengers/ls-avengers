@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Map from './map.js';
 import Description from './components/descriptions.js';
 import { Player } from './generics/person.js';
+import './App.css';
 
 const player = new Player({name: 'bob'});
 class App extends Component {
