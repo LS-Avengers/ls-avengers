@@ -14,7 +14,7 @@ var hallway = new Room({
 });
 var kitchen = new Room({
   name: 'Kitchen',
-  description: 'You entered the Kitchen, the servant\'s fridge lives against the wall aswell as the cooking doo\'dads that Bob made a point of never learning to use.',
+  description: 'In the kitchen you see a few cooking utensils and fridge. Maybe there is something inside.',
 });
 
 var computerRoom = new Room({
