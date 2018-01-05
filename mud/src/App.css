@@ -1,6 +1,5 @@
 .Container p {
-
-  outline: 1px solid #000f;
+  /*outline: 1px solid #000f;*/
   max-width: 500px;
 }
 .Container button {
