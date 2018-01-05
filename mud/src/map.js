@@ -56,7 +56,7 @@ var computerRoom = new Room({
   directions: {
     south: hallway,
   },
-  // inventory: [computer]
+  // inventory: [homeComputer]
 });
 // Work Rooms
 var work = new Room({
@@ -81,7 +81,7 @@ var workDesk = new Room({
   directions: {
     south: work,
   },
-  //inventory: [computer],
+  //inventory: [workComputer],
 });
 var frontDesk = new Room({
   name: 'Front Desk',
