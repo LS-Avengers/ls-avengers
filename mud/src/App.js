@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Map from './map.js';
+import Map from './components/map.js';
 import Description from './components/descriptions.js';
 import { Player } from './generics/person.js';
-import items from './itemList.js';
+import items from './components/itemList.js';
 
 import './App.css';
 
@@ -51,7 +51,7 @@ class App extends Component {
     const item = test(input) || input.split(' ').reverse()[0];
     const direction = { north: true, south: true, east: true, west: true };
 
-    if (doing === 'inventory') {
+    if (doing === 'inventory' || doing === 'i') {
       this.parseReturnValue(`You're carrying ${player.inventory.reduce((memo, curr) => memo += curr.name, '') || 'nothing'}.`);
       return
     }
@@ -101,7 +101,7 @@ class App extends Component {
           if (curr === 'name') memo += `You see ${args[i][curr]}.`
           else if (curr === 'description') memo += args[i][curr];
           else if (curr === 'actions') memo += `You could probably ${args[i][curr].join(', ')}.`;
-          else if (curr === 'inventory') memo += `It contains ${args[i][curr].join(', ')}.`;
+          else if (curr === 'inventory') memo += `It contains ${args[i][curr].join(', ') || 'nothing'}.`;
           else if (curr === 'directions') memo += `You see exits twords ${args[i][curr].join(', ')}.`
           else if (Array.isArray(args[i][curr])) memo += `You also see ${args[i][curr].join(', ')}`;
           else if (typeof args[i][curr] === 'string') memo += args[i][curr];
@@ -132,7 +132,7 @@ class App extends Component {
           this.handleInput(input.value);
           input.value = '';
         }}>
-          ><input type="text" ref={node => input = node} autofocus="true"/>
+          ><input type="text" ref={node => input = node} autoFocus="true"/>
         </form>
       </div>
     );

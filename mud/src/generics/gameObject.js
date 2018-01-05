@@ -19,6 +19,7 @@ class GameObject {
       name: this.name,
       description: this.description,
       actions: Object.keys(this.actions),
+      inventory: this.inventory.map(item => item.name)
     };
     if (this.inventory.length > 0) retVal.inventory = this.inventory.map(item => item.name);
     return retVal;
