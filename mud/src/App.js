@@ -2,16 +2,11 @@ import React, { Component } from 'react';
 import Map from './map.js';
 import Description from './components/descriptions.js';
 import { Player } from './generics/person.js';
+import items from './itemList.js';
 
 import './App.css';
 
-const player = new Player({
-  name: 'bob',
-  description: 'Meet Bob. A pharmaceutical representative for Pharma Corp. He has amassed a significant amount of wealth' +
-  'from his high paying job and constantly borrowing money from acquaintances so he would not have to make a trip to the bank,' +
-  'which a little over two blocks away.',
-  revenue: 'level 4', // but he doesn't want to spend it
-});
+const player = new Player({name: 'bob'});
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +18,7 @@ class App extends Component {
     };
     this.state.room.inventory.push(this.state.player);
     this.handleInput = this.handleInput.bind(this);
-  }  
+  }
 
   handleInput(input) {
     const { room, player } = this.state;

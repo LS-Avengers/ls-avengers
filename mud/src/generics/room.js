@@ -40,7 +40,7 @@ class Room extends GameObject {
     if (this.canGo(direction)) {
       return this.directions[direction].description;
     }
-    return false;
+    return this.description;
   }
 }
 
