@@ -13,7 +13,7 @@ Revenue:
 Main Character:
 	Bob
 	Pharm Rep
-	Revenue---level 1
+	Revenue---level 4
 	Greedy/Self-absorbed
 	Special skills: chemistry
 
