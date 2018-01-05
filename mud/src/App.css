@@ -4,16 +4,14 @@ body {
   background-color: #3037;
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
-  text-align: center;
+  line-height: 1.5rem;
+  color: #ffff;
 }
-.Container { text-align: center; }
+
 .Container p {
   max-width: 500px;
 }
-.Container button {
-  height: 2rem;
-  width: 4rem;
-}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -22,9 +20,15 @@ body {
   width: 500px;
   border: 1px solid #0009;
   border-radius: 5px;
-  background-color: #5007;
+  background-color: #000f;
  }
-.App input {
-  max-width: 16rem;
+.App input, .App input:focus, .App input:active {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  color: #ffff;
 }
 
