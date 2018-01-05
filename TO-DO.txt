@@ -11,7 +11,8 @@ THINGS TO DO:
 -- Need to incorporate NPC's into game action
 -- Narration -- for story
 -- actions completed on NPC/person's
--- actions completed for items		
+-- actions completed for items
+-- combat room -- you lose, reset the game to baseState
 
 Details:
 --get some ascii pictures of a tree (tree of life)

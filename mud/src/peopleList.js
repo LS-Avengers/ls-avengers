@@ -23,18 +23,21 @@ var boss2 = new Person({
   name: 'Boss 2',
   description: 'You just bumped into him! He\'s very quick to anger and sues you for ASSAULT!',
   // revenue needed
+  // net worth needed
 });
 
 var boss3 = new Person({
   name: 'Boss 3',
   description: '' // needs description
   //needs revenue
+  // net worth needed
 });
 
 var villain = new Person({
   name: 'Super Boss',
   description: '', // needs description
   // needs revenue
+  // net worth needed
 });
 
 var vagrant = new Person({
