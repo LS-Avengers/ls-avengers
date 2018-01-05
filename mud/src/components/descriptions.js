@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 
 export default (props) => (
-  <Fragment>
+  <div>
     <h2>{props.name}</h2>
     <p>{props.description}</p>
     <p>{props.inventory.map((item) => {
@@ -18,7 +18,7 @@ export default (props) => (
         </button>
         );
     })}</p>
-  </Fragment>
+  </div>
 );
         {/* <p>You can go {
           Object.keys(this.state.room.directions).map((dir) => {
