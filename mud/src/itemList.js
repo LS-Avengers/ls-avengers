@@ -40,7 +40,7 @@ homeComputer.addToActions('power', (function() {
 
 var workComputer = new Item({
   name: 'work computer',
-  description: 'Your work computer, all the days of solitare.',
+  description: 'Your work computer, all the days of solitaire.',
 });
 
 var flyer = new Item({
