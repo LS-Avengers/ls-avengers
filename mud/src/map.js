@@ -135,7 +135,7 @@ theBar.addNewDirection('north', lawStreet);
 // add snapple to fridge
 // add fridge with snapple to kitchen inventory
 kitchen.addToInventory(itemList[0]);
-// homeComputer, workComputer, flyer, camera, mapItem, treeOfLife
+// fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife
 
 computerRoom.addToInventory(itemList[2]);
 workDesk.addToInventory(itemList[3]);
@@ -143,8 +143,9 @@ mainStreet.addToInventory(itemList[4]);
 market.addToInventory(itemList[5]);
 mapStand.addToInventory(itemList[6]);
 parkOlympus.addToInventory(itemList[7]);
-
+market.addToInventory(itemList[8]);
 /* -----Add People----- */
 // moralFriend, Jerkface McGee, personWithDog, Boss2, Boss3, storeClerk (purchase snapples)
+
 export default [bedroom, hallway, outside, kitchen, computerRoom, workDesk, work, frontDesk, bossOffice, mainStreet,
   streetCorner, market, lawStreet, mapStand, theBar];
