@@ -10,7 +10,7 @@ var bedroom = new Room({
 
 var hallway = new Room({
   name: 'Hallway',
-  description: 'You stand at the entrance to the hallway. Its curiously quite a bit longer than seems it should be. Bob briefly considers the prospect of widening the wallway so he can drive.',
+  description: 'A narrow, dimly lit hallway because you never bothered to replace the lightbulbs',
 });
 var kitchen = new Room({
   name: 'Kitchen',
