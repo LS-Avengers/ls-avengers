@@ -18,9 +18,9 @@ class GameObject {
     const retVal = {
       name: this.name,
       description: this.description,
-      actions: Object.keys(this.actions).join(', '),
+      actions: Object.keys(this.actions),
     };
-    if (this.inventory.length > 0) retVal.inventory = this.inventory;
+    if (this.inventory.length > 0) retVal.inventory = this.inventory.map(item => item.name);
     return retVal;
   }
   addToActions(name, funct) {

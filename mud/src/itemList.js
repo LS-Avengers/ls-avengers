@@ -23,7 +23,15 @@ var fridge = new Item({
   description: 'Fridge filled with a refreshing Snapple',
 });
 fridge.addToInventory(snapple);
-
+fridge.open = (function() {
+  return `You see ${this.inventory.reduce((memo, item) => memo + item.name, '') || 'nothing'}`;
+}).bind(fridge);
+fridge.addToActions('open', fridge.open);
+fridge.addToActions('get', (function(person) {
+  this.removeFromInventory(snapple);
+  person.addToInventory(snapple);
+  return 'with a sigh, you resign to snapple.'
+}).bind(fridge));
 var homeComputer = new Item({
 
 });
