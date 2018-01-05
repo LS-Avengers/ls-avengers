@@ -1,6 +1,6 @@
 ﻿import GameObject from './gameObject.js';
 
-class Person extends GameObject {
+class Person extends GameObject{
   constructor(options) {
     super(options);
     this.netWorth = options.netWorth;
@@ -12,16 +12,13 @@ class Person extends GameObject {
     this.addToActions('sue', this.sue);
     this.addToActions('goBankrupt', this.goBankrupt);
   }
-
   sue(player) {
     this.netWorth -= player.revenue;
     player.netWorth -= this.revenue;
     if (this.netWorth < 0) this.goBankrupt();
   }
-
   goBankrupt() {}
 }
-
 
 // class NPC extends Person{
 //   constructor(options) {
@@ -29,10 +26,10 @@ class Person extends GameObject {
 //   }
 // }
 //
-// class Player extends Person{
-//   constructor(options){
-//     super(options);
-//   }
-// }
+class Player extends Person{
+  constructor(options){
+    super(options);
+  }
+}
 
-export default Person;
+export { Person, Player };
