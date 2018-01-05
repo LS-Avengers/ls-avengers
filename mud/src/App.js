@@ -106,7 +106,7 @@ class App extends Component {
           this.handleInput(input.value);
           input.value = '';
         }}>
-          <input type="text" ref={node => input = node} />
+          <input type="text" ref={node => input = node} autofocus="true"/>
         </form>
       </div>
     );

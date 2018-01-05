@@ -2,6 +2,8 @@ body {
   display: flex;
   justify-content: center;
   background-color: #3037;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
   text-align: center;
 }
 .Container { text-align: center; }
