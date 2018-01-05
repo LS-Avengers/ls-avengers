@@ -41,7 +41,7 @@ class App extends Component {
       this.setState = {
         room: Map[0],
         player,
-        updates: 'You had a crazy dream where you lost all of your money!'
+        updates: ''
       }
     }
   }
@@ -53,20 +53,22 @@ class App extends Component {
 
     if (direction[doing]) {
       const nRoom = room.actions.go(doing, player);
-      if (nRoom) this.setState({ room: nRoom });
-      else console.log('You can\'t go that way');
+      if (nRoom) {
+        this.setState({ room: nRoom, update: `you walk ${doing}.` });
+      }
+      else this.parseReturnValue('You can\'t go that way');
       return;
     }
     if (doing === 'go') {
       const nRoom = room.actions[doing](item, player);
-      if (nRoom) this.setState({ room: nRoom });
-      else console.log('you can\'t go that way');
+      if (nRoom) this.setState({ room: nRoom, update: `you ${doing} ${item}.` });
+      else this.parseReturnValue('you can\'t go that way');
       return;
     }
     if (doing === 'look') {
       const lRoom = room.actions[doing](item);
-      if (lRoom) console.log(lRoom);
-      else console.log('There\'s no looking that way');
+      if (lRoom) this.parseReturnValue(lRoom);
+      else this.parseReturnValue('There\'s no looking that way');
       return;
     }
 
@@ -74,18 +76,37 @@ class App extends Component {
     if (!value) value = player.inventory.filter(pItem => pItem.name === item)[0];
 
     if (doing === 'examine') {
-      if (!value) console.log(room.actions[doing]());
-      else console.log(value.actions[doing]());
+      if (!value) this.parseReturnValue(room.actions[doing]());
+      else this.parseReturnValue(value.actions[doing]());
       return;
     }
     if (!!value && Object.keys(value.actions).includes(doing)) {
       const retVal = value.actions[doing](player, room);
-      console.log(`you ${doing} the ${value.name}.`, retVal);
+      this.parseReturnValue(`you ${doing} the ${value.name}.`, retVal);
       return;
     }
-    console.log('You can\'t do that.');
+    this.parseReturnValue('You can\'t do that.');
   }
-
+  parseReturnValue(...args) {
+    console.log(args);  
+    let retVal = '';
+    for (let i = 0; i < args.length; i++) {
+      if (typeof args[i] === 'string') retVal += args[i] + ' ';
+      if (typeof args[i] === 'object' && !Array.isArray(args[i])) {
+        retVal += Object.keys(args[i]).reduce((memo, curr) => {
+          if (curr === 'name') memo += `You see ${args[i][curr]}.`
+          else if (curr === 'description') memo += args[i][curr];
+          else if (curr === 'actions') memo += `You could probably ${args[i][curr].join(', ')}.`;
+          else if (curr === 'inventory') memo += `It contains ${args[i][curr].join(', ')}.`;
+          else if (curr === 'directions') memo += `You see exits twords ${args[i][curr].join(', ')}.`
+          else if (Array.isArray(args[i][curr])) memo += `You also see ${args[i][curr].join(', ')}`;
+          else if (typeof args[i][curr] === 'string') memo += args[i][curr];
+          memo += ' ';
+        }, '');
+      }
+    }
+    if (retVal !== '') this.setState({ update: retVal });
+  }
   render() {
     let input;
     const room = this.state.room;
@@ -100,7 +121,7 @@ class App extends Component {
           directions={room.directions}
           handleInput={this.handleInput}
         />
-        <p>{this.state.actions}</p>
+        <p>{this.state.update}</p>
         <form onSubmit={(e) => {
           e.preventDefault();
           this.handleInput(input.value);
