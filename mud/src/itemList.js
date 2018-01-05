@@ -10,7 +10,7 @@ var snapple = new Item({
 });
 snapple.addToActions('open', () => {
   map[1].addNewDirection('north', map[2]);
-  return 'You opened the snapple bottle, "THE TREE OF LIFE IS CLOSER THAN IT MAY APPEAR!"'
+  return 'You opened the snapple bottle, the whole house shutters. The cap reads, "THE TREE OF LIFE IS CLOSER THAN IT MAY APPEAR!"'
 });
 
 var fridge = new Item({
@@ -24,7 +24,7 @@ fridge.addToActions('open', (function() {
 fridge.addToActions('get', (function(person) {
   this.removeFromInventory(snapple);
   person.addToInventory(snapple);
-  return 'with a sigh, you resign to snapple. You hear a creak in the house.'
+  return 'with a sigh, you resign to snapple.'
 }).bind(fridge));
 
 var homeComputer = new Item({
