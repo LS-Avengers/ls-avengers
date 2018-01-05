@@ -30,21 +30,18 @@ class App extends Component {
       room: Map[0],
       player,
       updates: '', // intended to be logging of updates
-      netWorth: 100000
     };
     this.state.room.inventory.push(this.state.player);
     this.handleInput = this.handleInput.bind(this);
   } // will mount?? with the state object--reset us to room zero
 
-  componentWillMount() {
-    if (this.props.netWorth === 0) {
-      this.setState = {
-        room: Map[0],
-        player,
-        updates: ''
-      }
-    }
-  }
+  // componentWillMount() {
+  //   this.setState = {
+  //     room: Map[0],
+  //     player,
+  //     updates: ''
+  //   }
+  // }
   handleInput(input) {
     const { room, player } = this.state;
     const doing = input.split(' ')[0];
