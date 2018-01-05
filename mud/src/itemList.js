@@ -24,7 +24,7 @@ fridge.addToActions('open', (function() {
 fridge.addToActions('get', (function(person) {
   this.removeFromInventory(snapple);
   person.addToInventory(snapple);
-  return 'with a sigh, you resign to snapple.'
+  return 'with a sigh, you resign to snapple. You hear a creak in the house.'
 }).bind(fridge));
 
 var homeComputer = new Item({
