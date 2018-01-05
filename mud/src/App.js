@@ -30,29 +30,44 @@ class App extends Component {
   }  
 
   handleInput(input) {
-    const test = input.split(' ');
-    let value = this.state.room.inventory.filter(item => test[test.length - 1] === item.name) 
-    if (value.length === 0) value = this.state.player.inventory.filter(item => test[test.length - 1] === item.name);
-    let testing
-    if (value.length > 0 && Object.keys(value[0].actions).includes(test[0])) {
-      testing = value[0].actions[test[0]](this.state.player, this.state.room);
-      // const test2 = [`you ${test[0]} the ${value[0].name}.`, ...[Object.values(testing)]];
-      console.log(`you ${test[0]} the ${value[0].name}.`, testing);
+    const { room, player } = this.state;
+    const doing = input.split(' ')[0];
+    const item = input.split(' ').reverse()[0];
+    const direction = { north: true, south: true, east: true, west: true };
+
+    if (direction[doing]) {
+      const nRoom = room.actions.go(doing, player);
+      if (room) this.setState({ room: nRoom });
+      else console.log('You can\'t go that way');
+      return;
     }
-    /* examine/look/go */
-    /* going places */
-    let room;
-    const direction = {
-      north: true,
-      south: true,
-      east: true,
-      west: true,
+    if (doing === 'go') {
+      const nRoom = room.actions[doing](item, player);
+      if (room) this.setState({ room: nRoom });
+      else console.log('you can\'t go that way');
+      return;
+    }
+    if (doing === 'look') {
+      const lRoom = room.actions[doing](item);
+      if (lRoom) console.log(lRoom);
+      else console.log('There\'s no looking that way');
+      return;
     }
 
-    if (direction[test[0]]) room = this.state.room.actions.go(test[0], this.state.player);
-    if (direction[test[test.length - 1]]) room = this.state.room.actions.go(test[test.length-1], this.state.player);
-    if (room) this.setState({ room });
-    else if (room === false) alert('can\'t go that way');
+    let value = room.inventory.filter(rItem => rItem.name === item)[0];
+    if (!value) value = player.inventory.filter(pItem => pItem.name === item)[0];
+
+    if (doing === 'examine') {
+      if (!value) console.log(room.actions[doing]());
+      else console.log(value.actions[doing]());
+      return;
+    }
+    if (!!value && Object.keys(value.actions).includes(doing)) {
+      const retVal = value.actions[doing](player, room);
+      console.log(`you ${doing} the ${value.name}.`, retVal);
+      return;
+    }
+    console.log('You can\'t do that.');
   }
 
   render() {

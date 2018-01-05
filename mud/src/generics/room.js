@@ -9,8 +9,10 @@ class Room extends GameObject {
     this.examineRoom = this.examineRoom.bind(this);
     this.go = this.go.bind(this);
     this.canGo = this.canGo.bind(this);
+    this.look = this.look.bind(this);
     this.addToActions('examine', this.examineRoom);
     this.addToActions('go', this.go);
+    this.addToActions('look', this.look)
   }
   canGo(direction) {
     return Object.keys(this.directions).includes(direction);
