@@ -1,5 +1,6 @@
 import Room from './generics/room.js';
 import itemList from './itemList.js';
+import player from './App.js';
 
 // Introduction
 // Apartment Rooms
@@ -82,6 +83,19 @@ var parkOlympus = new Room({
   description: 'You are in Park Olympus. The Tree of Life is in front of you.',
 });
 
+// COMBAT ROOM--inescable
+var combatRoom = new Room({
+  name: 'LAWSUIT!',
+  description: "YOU ARE BEING SUED FOR...(add code for automating reason for suing)!!",
+});
+combatRoom.addToActions('leave', () => {
+  if (player.newWorth === 0) {
+    // move back to bedroom -- "HUH WHAT A CRAZY DREAM"
+    // Map[0] remove player from current room; set them to Map[0]; set state to map[0]
+
+  }
+
+});
 /* --------Add directions---------- */
 // bedroom
 bedroom.addNewDirection('north', hallway);

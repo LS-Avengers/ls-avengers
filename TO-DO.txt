@@ -19,7 +19,9 @@ Details:
 --add some interactive detail to work computer--either work game or making spreadsheets
 --improve naming of Company, MF, bosses and villains
 --have a log of actions for a gameplay
-
+--add greed tax--only willing to have access to a certain percentage of revenue
+	increases everytime you borrow money from MF
+	makes it harder to win lawsuits
 
 COMPLETE:
 

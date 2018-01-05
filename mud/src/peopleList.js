@@ -5,7 +5,7 @@ import Person from './generics/person.js';
 var moralFriend = new Person({
   name: 'still need to name Moral Friend',
   description: 'An idealistic, giving friend who strives for conversation and to help others',
-  // revenue needed
+  revenue: 'level 1',
   // needs status change based on rooms (either add to map or make function here)
   // wants to start conversations:
     // introduces self at front desk---before boss fight---can't
@@ -15,7 +15,7 @@ var moralFriend = new Person({
 var boss1 = new Person({
   name: 'Jerkface McGee',
   description: 'Bob\'s boss at pharma corp??. He\'s incompetent and therefore insecure.',
-  // revenue needed
+  revenue: 'level 2',
   // name of pharmaceutical company needed
 });
 
