@@ -1,8 +1,9 @@
 class GameObject {
   constructor(options){
     this.name = options.name;
-    this.description = options.description;
+    this.description = options.description || 'I\'m descriptionless';
     this.inventory = [];
+    this.examine = this.examine.bind(this);
     this.actions = {
       examine: this.examine,
     };
@@ -17,6 +18,7 @@ class GameObject {
     const retVal = {
       name: this.name,
       description: this.description,
+      actions: Object.keys(this.actions),
     };
     if (this.inventory.length > 0) retVal.inventory = this.inventory;
     return retVal;

@@ -1,10 +1,9 @@
-﻿import GameObject from './GameObject.js';
+﻿import GameObject from './gameObject.js';
 
 class Person extends GameObject{
 	constructor(options){
 		super(options);
 		this.netWorth = options.netWorth;
-		this.inventory = options.inventory;
 		this.revenue = options.revenue;
 		this.bankrupt = false;
 	}

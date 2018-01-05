@@ -8,6 +8,9 @@ export default (props) => (
       if (item.name !== props.playerName)
         return <span>{item.name}</span>;
     })}</p>
+    <p>You are at the {props.name}.{Object.keys(props.directions).map((value) => {
+      return <Fragment> The {props.directions[value].name} is to the {value}.</Fragment>
+    })}</p>
     <p>{Object.keys(props.directions).map((value) => {
         return (
         <button onClick={() => {props.handleInput(value)}}>
