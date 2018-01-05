@@ -53,7 +53,7 @@ var mainStreet = new Room({
 });
 var streetCorner = new Room({
   name: 'West Street Corner',
-  description: 'You are on the West Street Corner. You see a Disheveled Person yelling. Main Street is East.',
+  description: 'You are on the West Street Corner. You see an Eccentric yelling. Main Street is East.',
 });
 var market = new Room({
   name: 'Market',

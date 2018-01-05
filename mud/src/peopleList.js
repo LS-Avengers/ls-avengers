@@ -37,4 +37,10 @@ var villain = new Person({
   // needs revenue
 });
 
-export default [moralFriend, boss1, boss2, boss3, villain]
+var vagrant = new Person({
+  name: 'Eccentric',
+  description: 'Crazy cat person with a safeway cart is yelling at the sky. Maybe we should Listen',
+  // action needed -- listen to eccentric's ramblings
+  // trigger -- open direction to law street/part 3
+});
+export default [moralFriend, boss1, boss2, boss3, villain, vagrant]

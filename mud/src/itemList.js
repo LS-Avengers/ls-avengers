@@ -61,6 +61,7 @@ var mapItem = new Item({
   name: 'map',
   description: 'A nice map of Everytown, USA...dated 50 years ago!',
   canPickup: true,
+  // old map doesn't trigger event
 });
 
 var treeOfLife = new Item({
