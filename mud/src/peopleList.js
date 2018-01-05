@@ -1,7 +1,7 @@
 import GameObject from './gameObject.js';
 import Person from './generics/person.js';
 
-// moralFriend, Jerkface McGee, personWithDog, Boss2, Boss3, storeClerk (purchase snapples)
+// moralFriend, Jerkface McGee, personWithDog, Boss2, Boss3, vagrant
 var moralFriend = new Person({
   name: 'still need to name Moral Friend',
   description: 'An idealistic, giving friend who strives for conversation and to help others',
