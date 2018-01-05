@@ -10,7 +10,7 @@ var bedroom = new Room({
 
 var hallway = new Room({
   name: 'Hallway',
-  description: 'A narrow, dimly lit hallway because you never bothered to replace the lightbulbs',
+  description: 'A narrow, dimly lit hallway because you never bothered to replace the light-bulbs',
 });
 var kitchen = new Room({
   name: 'Kitchen',
@@ -54,6 +54,7 @@ var mainStreet = new Room({
 var streetCorner = new Room({
   name: 'West Street Corner',
   description: 'You are on the West Street Corner. You see an Eccentric yelling. Main Street is East.',
+  // see vagrant item in itemList
 });
 var market = new Room({
   name: 'Market',
