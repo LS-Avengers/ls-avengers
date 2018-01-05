@@ -1,0 +1,26 @@
+THINGS TO DO:
+
+
+-- Styling (CSS colors etc)
+-- An output that informs user of actions being performed
+	--way to check inventory
+	--have conversations with MF
+-- need COMBAT
+	figure out lawsuits
+	random number generator for revenue depletion?
+-- Need to incorporate NPC's into game action
+-- Narration -- for story
+-- actions completed on NPC/person's
+-- actions completed for items		
+
+Details:
+--get some ascii pictures of a tree (tree of life)
+--get ascii picture of dogs (for home computer)
+--add some interactive detail to work computer--either work game or making spreadsheets
+--improve naming of Company, MF, bosses and villains
+--have a log of actions for a gameplay
+
+
+COMPLETE:
+
+-- multi-word for name of Item: Thomas
