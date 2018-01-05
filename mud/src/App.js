@@ -37,13 +37,13 @@ class App extends Component {
 
     if (direction[doing]) {
       const nRoom = room.actions.go(doing, player);
-      if (room) this.setState({ room: nRoom });
+      if (nRoom) this.setState({ room: nRoom });
       else console.log('You can\'t go that way');
       return;
     }
     if (doing === 'go') {
       const nRoom = room.actions[doing](item, player);
-      if (room) this.setState({ room: nRoom });
+      if (nRoom) this.setState({ room: nRoom });
       else console.log('you can\'t go that way');
       return;
     }
