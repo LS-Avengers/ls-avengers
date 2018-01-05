@@ -11,27 +11,15 @@ export default (props) => (
       </Fragment>
     })}</p>
     <p>{props.inventory.map((item) => {
-      if (item.name !== props.playerName)
+      if (item.name !== props.playerName) {
         return (
         <Fragment>
           There is a
-          <em 
-            onClick={() => {props.handleInput(`examine ${item.name}`)}}
-            className="Item"
-          >
-            {item.name}
-          </em>.
+          <em onClick={() => {props.handleInput(`examine ${item.name}`)}}
+          className="Item">{item.name}</em>.
         </Fragment>
         );
+      }
     })}</p>
   </div>
 );
-
-
-    /// <p>{Object.keys(props.directions).map((value) => {
-    //     return (
-    //     <button onClick={() => {props.handleInput(value)}}>
-    //       {value}
-    //     </button>
-    //     );
-    // })}</p>
