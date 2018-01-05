@@ -26,12 +26,9 @@ class NPC extends Person{
 	}
 }
 
-class Player extends  Person{
+class Player extends Person{
 	constructor(options){
 		super(options);
-	}
-	goBankrupt() {
-		console.log("Chapter 11!");
 	}
 }
 
