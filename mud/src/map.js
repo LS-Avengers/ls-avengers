@@ -29,9 +29,10 @@ import Room from './generics/room.js';
 // Apartment Rooms
 var bedroom = new Room({
   name: 'Bedroom',
-  description: 'You are in your Bedroom. The Hallway is to the North.',
+  description: 'Your bedroom is finely furnished. You classy gentleman you.',
   directions: {north: hallway},
 });
+
 var hallway = new Room({
   name: 'Hallway',
   description: 'You are in a Hallway. The Kitchen is West, the Computer Room is East, the Bedroom is South, and the Front Door to Outside is North.',
