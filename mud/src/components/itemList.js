@@ -8,10 +8,11 @@ var snapple = new Item({
   description: 'it\'s a snapple bottle',
   canPickup: true,
 });
-snapple.addToActions('open', () => {
+snapple.addToActions('open', (function() {
   map[1].addNewDirection('north', map[2]);
+  console.log(this);
   return 'You opened the snapple bottle, the whole house shutters. The cap reads, "THE TREE OF LIFE IS CLOSER THAN IT MAY APPEAR!"'
-});
+}).bind(snapple));
 
 var fridge = new Item({
   name: 'fridge',

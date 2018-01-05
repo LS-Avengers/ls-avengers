@@ -3,6 +3,7 @@ class GameObject {
     this.name = options.name;
     this.description = options.description || 'I\'m descriptionless';
     this.inventory = [];
+
     this.examine = this.examine.bind(this);
     this.actions = {
       examine: this.examine,
