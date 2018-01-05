@@ -15,12 +15,21 @@ class App extends Component {
   }
   handleInput(input) {
     const test = input.split(' ');
-    this.state.room.inventory.filter(item => item.name)
-    if (['north', 'south', 'east', 'west'].includes(test[0])) {
-      const room = this.state.room.actions.go(test[0], this.state.player);
-      if (room) this.setState({ room });
-      else alert('can\'t go that way');
+    const value = 
+      this.state.room.inventory.filter(item => test[test.length - 1] === item.name);
+
+    const direction = {
+      north: true,
+      south: true,
+      east: true,
+      west: true,
     }
+    let room;
+    if (direction[test[0]]) room = this.state.room.actions.go(test[0], this.state.player);
+    if (direction[test[test.length - 1]]) room = this.state.room.actions.go(test[test.length-1], this.state.player);
+    if (value.length > 0) value[0].actions[test[0]];
+    if (room) this.setState({ room });
+    else if (room === false) alert('can\'t go that way');
   }
   render() {
     let input;
