@@ -7,12 +7,12 @@ export default (props) => (
     <p>You are at the {props.name}.{Object.keys(props.directions).map((value) => {
       return <Fragment>
         The {props.directions[value].name} is to the
-        <span className="Direction" onClick={() => {props.handleInput(value)}}> {value}</span>.
+        <strong onClick={() => {props.handleInput(value)}}> {value}</strong>.
       </Fragment>
     })}</p>
     <p>{props.inventory.map((item) => {
       if (item.name !== props.playerName)
-        return <Fragment>There is a {item.name}.</Fragment>;
+        return <Fragment>There is a <em className="Item">{item.name}</em>.</Fragment>;
     })}</p>
   </div>
 );
