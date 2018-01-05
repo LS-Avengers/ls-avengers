@@ -1,3 +1,7 @@
+body {
+  background-color: #3037;
+}
+
 .Container p {
   /*outline: 1px solid #000f;*/
   max-width: 500px;
