@@ -52,7 +52,12 @@ class App extends Component {
     const direction = { north: true, south: true, east: true, west: true };
 
     if (doing === 'inventory' || doing === 'i') {
-      this.parseReturnValue(`You're carrying ${player.inventory.reduce((memo, curr, i) => memo += `${curr.name}${i === player.inventory.length - 1 ? '' : ', '}`, '') || 'nothing'}.`);
+      this.parseReturnValue(
+        `You're carrying ${
+          player.inventory.reduce((memo, curr, i) => {
+            return memo += `${curr.name}${i === player.inventory.length - 1 ? '' : ', '}`
+          }, '') || 'nothing'
+        }.`);
       return
     }
     if (direction[doing]) {
