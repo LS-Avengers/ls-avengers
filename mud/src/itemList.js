@@ -35,7 +35,7 @@ var homeComputer = new Item({
 });
 homeComputer.state = false;
 homeComputer.addToActions('power', (function() {
-  this.state = !this.state
+  this.state = !this.state;
   return 'you push the power button';
 }).bind(homeComputer));
 

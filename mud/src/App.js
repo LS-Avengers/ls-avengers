@@ -6,7 +6,13 @@ import items from './itemList.js';
 
 import './App.css';
 
-const player = new Player({name: 'bob'});
+const player = new Player({
+  name: 'bob',
+  description: 'Meet Bob. A pharmaceutical representative for Pharma Corp. He has amassed a significant amount of wealth' +
+   'from his high paying job and constantly borrowing money from acquaintances so he would not have to make a trip to the bank,' +
+  'which a little over two blocks away.',
+  revenue: 'level 4', // but he doesn't want to spend it
+});
 
 const itemNames = items.map(item => item.name);
 const test = (input) => {
