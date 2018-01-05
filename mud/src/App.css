@@ -1,3 +1,8 @@
+body {
+  background-color: #3037;
+  text-align: center;
+}
+.Container { text-align: center; }
 .Container p {
   /*outline: 1px solid #000f;*/
   max-width: 500px;
@@ -10,6 +15,7 @@
   display: flex;
   flex-direction: column;
   margin: 1rem;
+  width: 500px;
  }
 .App input {
   max-width: 16rem;
