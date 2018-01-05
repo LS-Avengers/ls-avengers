@@ -15,10 +15,11 @@ class App extends Component {
     this.state.room.inventory.push(this.state.player);
     this.handleInput = this.handleInput.bind(this);
   }
+
   handleInput(input) {
     const test = input.split(' ');
     const value = this.state.room.inventory.filter(item => test[test.length - 1] === item.name);
-    let testing
+    let testing;
     if (value.length > 0) testing = value[0].actions[test[0]]();
 
     /* going places */
@@ -29,11 +30,14 @@ class App extends Component {
       east: true,
       west: true,
     }
+
     if (direction[test[0]]) room = this.state.room.actions.go(test[0], this.state.player);
     if (direction[test[test.length - 1]]) room = this.state.room.actions.go(test[test.length-1], this.state.player);
     if (room) this.setState({ room });
     else if (room === false) alert('can\'t go that way');
+    
   }
+
   render() {
     let input;
     const room = this.state.room;
