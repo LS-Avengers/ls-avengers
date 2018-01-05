@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
-
+// class container is defined in App.css
 export default (props) => (
-  <div>
+  <div className="Container">
     <h2>{props.name}</h2>
     <p>{props.description}</p>
     <p>{props.inventory.map((item) => {
@@ -20,12 +20,3 @@ export default (props) => (
     })}</p>
   </div>
 );
-        {/* <p>You can go {
-          Object.keys(this.state.room.directions).map((dir) => {
-            return (
-              <button onClick={() => {this.handleInput(dir)}}>
-                {dir}
-              </button>
-            );
-          })
-        }</p> */};

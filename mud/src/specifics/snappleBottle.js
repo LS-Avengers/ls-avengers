@@ -6,7 +6,6 @@ const snapple = new Item({
   description: 'it\'s a snapple bottle',
   canPickup: true,
 });
-
 snapple.addToActions('open', () => {
   map[1].addNewDirection('north', map[2]);
   return 'You opened the snapple bottle, "THE TREE OF LIFE IS CLOSER THAN IT MAY APPEAR!"'
