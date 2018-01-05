@@ -61,6 +61,7 @@ var mapItem = new Item({
   name: 'map',
   description: 'A nice map of Everytown, USA...dated 50 years ago!',
   canPickup: true,
+  // old map doesn't trigger event
 });
 
 var treeOfLife = new Item({
@@ -69,4 +70,13 @@ var treeOfLife = new Item({
   // chop down tree action
   // take picture of tree action
 });
-export default [fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife];
+
+var snapples = new Item({
+  name: 'A Bunch of Snapples',
+  description: 'A whole bunch of snapples! Let\'s check all the lids!',
+  // get snapples
+  // check snapples
+    // No info about the tree of life -- need to go find it somewhere else
+});
+
+export default [fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife, snapples];

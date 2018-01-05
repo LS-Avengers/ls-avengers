@@ -5,26 +5,26 @@ import itemList from './itemList.js';
 // Apartment Rooms
 var bedroom = new Room({
   name: 'Bedroom',
-  description: 'Your bedroom is finely furnished. You classy gentleman you.',
+  description: 'Bob awakens in his bedroom, it is a finely furnished room with only the nicest linens. You classy gentleman you. The door to your bedroom stands open and waiting for your exit.',
 });
 
 var hallway = new Room({
   name: 'Hallway',
-  description: 'You are in a Hallway. The Kitchen is West, the Computer Room is East, the Bedroom is South, and the Front Door to Outside is North.',
+  description: 'You stand at the entrance to the hallway. Its curiously quite a bit longer than seems it should be. Bob briefly considers the prospect of widening the wallway so he can drive.',
 });
 var kitchen = new Room({
   name: 'Kitchen',
-  description: 'You have entered the Kitchen with a Fridge. The Hallway is East.',
+  description: 'You entered the Kitchen, the servant\'s fridge lives against the wall aswell as the cooking doo\'dads that Bob made a point of never learning to use.',
 });
 
 var computerRoom = new Room({
   name: 'Computer Room',
-  description: 'You have entered the Computer Room with a Computer. The Hallway is West.',
+  description: 'Ahh the computer room, *shhh* it\'s sleeping.',
 });
 // Outside Rooms
 var outside = new Room({
   name: 'Outside',
-  description: 'You are Outside. Work is West. Main Street is North',
+  description: 'You are outside. ',
 
 });
 // Work Rooms
@@ -34,7 +34,7 @@ var work = new Room({
 });
 var bossOffice = new Room({
   name: 'Boss\'s Office',
-  description: 'You are in your Boss\'s Office. Your Boss is at his desk. The Main Office is North',
+  description: 'You are in your Boss\'s Office. Your Boss sits at his desk.',
 });
 var workDesk = new Room({
   name: 'Work Desk',
@@ -53,7 +53,7 @@ var mainStreet = new Room({
 });
 var streetCorner = new Room({
   name: 'West Street Corner',
-  description: 'You are on the West Street Corner. You see a Disheveled Person yelling. Main Street is East.',
+  description: 'You are on the West Street Corner. You see an Eccentric yelling. Main Street is East.',
 });
 var market = new Room({
   name: 'Market',
@@ -135,7 +135,7 @@ theBar.addNewDirection('north', lawStreet);
 // add snapple to fridge
 // add fridge with snapple to kitchen inventory
 kitchen.addToInventory(itemList[0]);
-// homeComputer, workComputer, flyer, camera, mapItem, treeOfLife
+// fridge, snapple, homeComputer, workComputer, flyer, camera, mapItem, treeOfLife
 
 computerRoom.addToInventory(itemList[2]);
 workDesk.addToInventory(itemList[3]);
@@ -143,8 +143,9 @@ mainStreet.addToInventory(itemList[4]);
 market.addToInventory(itemList[5]);
 mapStand.addToInventory(itemList[6]);
 parkOlympus.addToInventory(itemList[7]);
-
+market.addToInventory(itemList[8]);
 /* -----Add People----- */
 // moralFriend, Jerkface McGee, personWithDog, Boss2, Boss3, storeClerk (purchase snapples)
+
 export default [bedroom, hallway, outside, kitchen, computerRoom, workDesk, work, frontDesk, bossOffice, mainStreet,
   streetCorner, market, lawStreet, mapStand, theBar];
