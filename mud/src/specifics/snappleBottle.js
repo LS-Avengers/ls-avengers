@@ -4,9 +4,10 @@ class SnappleBottle extends Item {
   constructor(options) {
     super();
   }
-  capLid = () => {
-    this.canUse = true;
-    console.log("The tree of life exists!");
+  open = () => {
+    this.canUse = false;
+    console.log("The snapple bottle opened");
+    return "The tree of life exists";
   }
 }
 
