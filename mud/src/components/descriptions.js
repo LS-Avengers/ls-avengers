@@ -6,7 +6,7 @@ export default (props) => (
     <p>{props.description}</p>
     <p>{props.inventory.map((item) => {
       if (item.name !== props.playerName)
-        return <span>{item.name}</span>;
+        return <Fragment>{item.name}</Fragment>;
     })}</p>
     <p>You are at the {props.name}.{Object.keys(props.directions).map((value) => {
       return <Fragment> The {props.directions[value].name} is to the {value}.</Fragment>
