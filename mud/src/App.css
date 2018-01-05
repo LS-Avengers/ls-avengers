@@ -13,3 +13,7 @@
 .App input {
   width: 16rem;
 }
+
+.Direction {
+  font-weight: 700;
+}
