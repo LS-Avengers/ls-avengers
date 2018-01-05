@@ -11,7 +11,7 @@ export default (props) => (
     <p>You are at the {props.name}.{Object.keys(props.directions).map((value) => {
       return <Fragment>
         The {props.directions[value].name} is to the
-          <span onClick={() => {props.handleInput(value)}}>{value}</span>.
+          <span onClick={() => {props.handleInput(value)}}> {value}</span>.
           </Fragment>
     })}</p>
   </div>
