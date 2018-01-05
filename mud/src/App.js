@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from './map.js';
+import Description from './components/descriptions.js';
 
 const Player = {name: 'bob'};
 class App extends Component {
@@ -10,10 +11,11 @@ class App extends Component {
       player: Player,
     };
     this.state.room.inventory.push(this.state.player);
+    this.handleInput = this.handleInput.bind(this);
   }
   handleInput(input) {
     const test = input.split(' ');
-    console.log(Object.keys(this.state.room.actions));
+    this.state.room.inventory.filter(item => item.name)
     if (['north', 'south', 'east', 'west'].includes(test[0])) {
       const room = this.state.room.actions.go(test[0], this.state.player);
       if (room) this.setState({ room });
@@ -22,28 +24,18 @@ class App extends Component {
   }
   render() {
     let input;
+    const room = this.state.room;
+
     return (
       <div className="App">
-        <h2>{this.state.room.name}</h2>
-        <p>{this.state.room.description}</p>
-        <p>{
-          this.state.room.inventory
-            ? this.state.room.inventory.map((test) => {
-              if (test !== this.state.player) 
-                return <span>{test.name}</span>
-            })
-            : ''
-        }</p>
-        <p>You can go {
-          Object.keys(this.state.room.directions).map((dir) => {
-            return (
-              <button onClick={() => {this.handleInput(dir)}}>
-                {dir}
-              </button>
-            );
-          })
-        }</p>
-        {/* display current Room */}
+        <Description
+          name={room.name}
+          description={room.description}
+          inventory={room.inventory}
+          playerName={this.state.player.name}
+          directions={room.directions}
+          handleInput={this.handleInput}
+        />
         <form onSubmit={(e) => {
           e.preventDefault();
           this.handleInput(input.value);

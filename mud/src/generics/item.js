@@ -1,4 +1,5 @@
 import GameObject from "./gameObject.js";
+
 class Item extends GameObject {
   constructor(options){
     super();
