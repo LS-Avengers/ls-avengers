@@ -88,9 +88,9 @@ class Room extends Container {
     this.go = this.go.bind(this);
     this.canGo = this.canGo.bind(this);
     this.look = this.look.bind(this);
-    this.addToActions('examine', this.examineRoom);
-    this.addToActions('go', this.go);
-    this.addToActions('look', this.look);
+    this.addToActions(['examine', 'ex', 'exam'], this.examineRoom);
+    this.addToActions(['go', 'head', 'walk'], this.go);
+    this.addToActions(['look', 'l'], this.look);
   }
   canGo(direction) {
     return Object.keys(this.directions).includes(direction);

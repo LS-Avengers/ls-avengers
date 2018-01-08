@@ -71,7 +71,7 @@ class App extends Component {
       else this.parseReturnValue('you can\'t go that way');
       return;
     }
-    if (doing === 'look') {
+    if (['look', 'l'].includes(doing)) {
       const lRoom = room.actions[doing](item);
       if (lRoom) this.parseReturnValue(lRoom);
       else this.parseReturnValue('There\'s no looking that way');
@@ -81,7 +81,7 @@ class App extends Component {
     let value = room.inventory.filter(rItem => rItem.name === item)[0];
     if (!value) value = player.inventory.filter(pItem => pItem.name === item)[0];
 
-    if (doing === 'examine') {
+    if (['ex', 'examine', 'exam'].includes(doing)) {
       if (!value) this.parseReturnValue(room.actions[doing]());
       else this.parseReturnValue(value.actions[doing]());
       return;
