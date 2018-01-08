@@ -1,4 +1,4 @@
-import Room from '../generics/room.js';
+import { Room } from '../generics';
 import itemList from './itemList.js';
 
 // Introduction

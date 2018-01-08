@@ -1,4 +1,4 @@
-import Item from '../generics/item.js';
+import { Item, Container } from '../generics';
 import map from './map.js';
 
 // List of interactive items/objects that push the story forward
@@ -14,7 +14,7 @@ snapple.addToActions('open', (function() {
   return 'You opened the snapple bottle, the whole house shutters. The cap reads, "THE TREE OF LIFE IS CLOSER THAN IT MAY APPEAR!"'
 }).bind(snapple));
 
-var fridge = new Item({
+var fridge = new Container({
   name: 'fridge',
   description: 'Fridge with a refreshing Snapple',
 });

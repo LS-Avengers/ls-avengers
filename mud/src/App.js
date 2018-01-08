@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from './components/map.js';
 import Description from './components/descriptions.js';
-import { Player } from './generics/person.js';
+import { Player } from './generics';
 import items from './components/itemList.js';
 
 import './App.css';
@@ -88,14 +88,16 @@ class App extends Component {
     }
     if (!!value && Object.keys(value.actions).includes(doing)) {
       const retVal = value.actions[doing](player, room);
-      this.parseReturnValue(`you ${doing} the ${value.name}.`, retVal);
+      this.parseReturnValue(`You try ${doing} the ${value.name}.`, retVal);
       return;
     }
-    this.parseReturnValue('You can\'t do that.');
+    this.parseReturnValue(false);
   }
   parseReturnValue(...args) {
     let retVal = '';
     for (let i = 0; i < args.length; i++) {
+      if (args[i] === false) return this.setState({ update: retVal += 'You can\'t do that.'});
+
       if (typeof args[i] === 'string') retVal += args[i] + ' ';
       if (typeof args[i] === 'object' && !Array.isArray(args[i])) {
         retVal += Object.keys(args[i]).reduce((memo, curr) => {
