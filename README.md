@@ -1,3 +1,8 @@
+# This project has been archived to preserve the integrity of its intention.
+This was built over a 24 hour hackathon at LambdaSchool to reveal the promise of an MVP (minimum viable product). It won the staff-pick award.
+
+There have been minor updates to improve consistency.
+
 #myRpg
 RPG
 Dungeon Crawl
